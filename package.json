@@ -28,9 +28,14 @@
     "jest": "^20.0.4"
   },
   "babel": {
-    "presets": ["babel-preset-env"]
+    "presets": [
+      "babel-preset-env"
+    ]
   },
-  "files": ["index.js", "index.es5.js"],
+  "files": [
+    "index.js",
+    "index.es5.js"
+  ],
   "jest": {
     "testEnvironment": "@skatejs/ssr/jest"
   }
