@@ -1,6 +1,6 @@
 import { render } from "preact";
 
-export const withComponent = Base =>
+export const withPreact = Base =>
   class extends (Base || HTMLElement) {
     rendererCallback(renderRoot, renderCallback) {
       this._preactDom = render(
