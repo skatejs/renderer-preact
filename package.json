@@ -1,0 +1,37 @@
+{
+  "name": "@skatejs/renderer-preact",
+  "version": "1.0.0",
+  "description": "SkateJS renderer for Preact.",
+  "main": "index.es5.js",
+  "esnext": "index.js",
+  "scripts": {
+    "prepublish": "babel index.js > index.es5.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skatejs/renderer-preact.git"
+  },
+  "author": "Trey Shugart <treshugart@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/skatejs/renderer-preact/issues"
+  },
+  "homepage": "https://github.com/skatejs/renderer-preact#readme",
+  "dependencies": {
+    "preact": "^8.0.0"
+  },
+  "devDependencies": {
+    "@skatejs/ssr": "^0.12.2",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "jest": "^20.0.4"
+  },
+  "babel": {
+    "presets": ["babel-preset-env"]
+  },
+  "files": ["index.js", "index.es5.js"],
+  "jest": {
+    "testEnvironment": "@skatejs/ssr/jest"
+  }
+}
