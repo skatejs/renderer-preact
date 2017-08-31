@@ -17,7 +17,7 @@ import { withComponent } from 'skatejs';
 import { withPreact } from '@skatejs/renderer-preact';
 
 class MyComponent extends withComponent(withPreact()) {
-  renderCallback({ yell }) {
+  renderCallback() {
     return <div>Hello, <slot />!</div>;
   }
 }
