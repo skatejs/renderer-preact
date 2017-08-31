@@ -13,6 +13,9 @@ npm install @skatejs/renderer-preact
 This assumes knowledge of SkateJS.
 
 ```js
+/** @jsx h */
+
+import { h } from 'preact';
 import { withComponent } from 'skatejs';
 import { withPreact } from '@skatejs/renderer-preact';
 
