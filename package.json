@@ -1,16 +1,17 @@
 {
   "devDependencies": {
+    "@skatejs/ssr": "^0.12.2",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^7.2.3",
     "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "babel-preset-es2015-rollup": "^3.0.0",
+    "conartist": "github:treshugart/conartist#master",
+    "jest": "^20.0.4",
     "rollup": "^0.47.4",
     "rollup-plugin-babel": "^3.0.2",
-    "rollup-plugin-uglify": "^2.0.1",
-    "@skatejs/ssr": "^0.12.2",
-    "jest": "^20.0.4"
+    "rollup-plugin-uglify": "^2.0.1"
   },
   "scripts": {
     "build:es":
@@ -19,15 +20,17 @@
       "babel --no-babelrc src --out-dir esnext --presets=$(pwd)/config/babel.esnext",
     "build:node":
       "babel --no-babelrc src --out-dir node --presets=$(pwd)/config/babel.node",
-    "build:umd": "rollup -c && rollup -c --min",
-    "prepublish": "babel index.js > index.es5.js",
+    "build:umd":
+      "rollup -c && rollup -c --min",
+    "prepare":
+      "npm run build:es; npm run build:esnext",
     "test": "jest"
   },
   "name": "@skatejs/renderer-preact",
   "version": "1.0.0",
   "description": "SkateJS renderer for Preact.",
-  "main": "index.es5.js",
-  "esnext": "index.js",
+  "main": "es/index.js",
+  "esnext": "esnext/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/skatejs/renderer-preact.git"
