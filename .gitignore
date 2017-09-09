@@ -1,3 +1,11 @@
-node_modules/
-*.log
-index.*.js
+/coverage
+/demo/dist
+/es
+/esnext
+/lib
+/node
+/node_modules
+/public
+/ts-output
+/umd
+npm-debug.log*

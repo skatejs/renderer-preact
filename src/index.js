@@ -1,4 +1,4 @@
-import { render } from "preact";
+import { render } from 'preact';
 
 export const withPreact = Base =>
   class extends (Base || HTMLElement) {
