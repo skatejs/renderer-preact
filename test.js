@@ -1,9 +1,9 @@
 /** @jsx h */
 
 import { h } from "preact";
-import { withComponent } from ".";
+import { withRenderer } from ".";
 
-class MyElement extends withComponent() {
+class MyElement extends withRenderer() {
   renderCallback({ name }) {
     return h("div", null, "Hello, ", name, "!");
   }
