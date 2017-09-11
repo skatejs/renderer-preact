@@ -1,1 +1,1 @@
-module.exports = require('.././conartist.js')['rollup.config.js'].data();
+module.exports = require('./conartist.js')['rollup.config.js'].data();

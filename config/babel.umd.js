@@ -1,1 +1,1 @@
-module.exports = require('.././conartist.js')['config/babel.umd.js'].data();
+module.exports = require('./../conartist.js')['config/babel.umd.js'].data();
