@@ -5,8 +5,7 @@ module.exports = config(babel(), base(), jest(), rollup(), {
   'rollup.config.js'() {
     return Object.assign({}, rollup()['rollup.config.js'](), {
       globals: {
-        preact: 'Preact',
-        'skatejs/esnext': 'skate'
+        preact: 'Preact'
       },
       name: 'skateRendererPreact'
     });
