@@ -1,16 +1,18 @@
 {
   "devDependencies": {
+    "@skatejs/ssr": "^0.12.2",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^7.2.3",
     "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "babel-preset-es2015-rollup": "^3.0.0",
+    "conartist": "^0.7.1",
+    "jest": "^20.0.4",
+    "preact": "^8.0.0",
     "rollup": "^0.47.4",
     "rollup-plugin-babel": "^3.0.2",
-    "rollup-plugin-uglify": "^2.0.1",
-    "@skatejs/ssr": "^0.12.2",
-    "jest": "^20.0.4"
+    "rollup-plugin-uglify": "^2.0.1"
   },
   "scripts": {
     "build:es":
@@ -20,8 +22,10 @@
     "build:node":
       "babel --no-babelrc src --out-dir node --presets=$(pwd)/config/babel.node",
     "build:umd": "rollup -c && rollup -c --min",
-    "prepublish": "babel index.js > index.es5.js",
-    "test": "jest"
+    "test": "jest",
+    "build":
+      "npm run build:es && npm run build:esnext && npm run build:node && npm run build:umd",
+    "prepublish": "npm run build"
   },
   "name": "@skatejs/renderer-preact",
   "version": "1.0.0",
@@ -34,10 +38,18 @@
   },
   "author": "Trey Shugart <treshugart@gmail.com>",
   "license": "MIT",
-  "bugs": { "url": "https://github.com/skatejs/renderer-preact/issues" },
+  "bugs": {
+    "url": "https://github.com/skatejs/renderer-preact/issues"
+  },
   "homepage": "https://github.com/skatejs/renderer-preact#readme",
-  "dependencies": { "preact": "^8.0.0" },
-  "babel": { "presets": ["babel-preset-env"] },
+  "peerDependencies": {
+    "preact": "^8.0.0"
+  },
+  "babel": {
+    "presets": ["babel-preset-env"]
+  },
   "files": ["index.js", "index.es5.js"],
-  "jest": { "testEnvironment": "@skatejs/ssr/jest" }
+  "jest": {
+    "testEnvironment": "@skatejs/ssr/jest"
+  }
 }

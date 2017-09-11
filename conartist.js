@@ -1,7 +1,14 @@
 const { config } = require('conartist');
-const { base, babel, rollup } = require('conartist/config');
-const fs = require('fs');
+const { babel, base, jest, rollup } = require('conartist/preset');
 
-module.exports = config(base, babel, rollup, {
-  'package.json': require('./package.json')
+module.exports = config(babel(), base(), jest(), rollup(), {
+  'rollup.config.js'() {
+    return Object.assign({}, rollup()['rollup.config.js'](), {
+      globals: {
+        preact: 'Preact',
+        'skatejs/esnext': 'skate'
+      },
+      name: 'skateRendererPreact'
+    });
+  }
 });
