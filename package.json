@@ -1,17 +1,18 @@
 {
   "devDependencies": {
+    "@skatejs/ssr": "^0.12.2",
     "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "conartist": "^0.7.1",
     "jest": "^20.0.4",
-    "babel-preset-es2015-rollup": "^3.0.0",
+    "preact": "^8.0.0",
     "rollup": "^0.49.3",
     "rollup-plugin-babel": "^3.0.2",
-    "rollup-plugin-uglify": "^2.0.1",
-    "conartist": "^0.7.1",
-    "preact": "^8.0.0"
+    "rollup-plugin-uglify": "^2.0.1"
   },
   "scripts": {
     "build:es": "babel --no-babelrc src --out-dir es --presets=$(pwd)/config/babel.es",
