@@ -49,7 +49,6 @@
     "testEnvironment": "@skatejs/ssr/jest"
   },
   "name": "@skatejs/renderer-preact",
-  "version": "0.0.0",
   "description": "SkateJS renderer for Preact.",
   "browser": "umd/index.js",
   "module": "es/index.js",
