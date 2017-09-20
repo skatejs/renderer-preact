@@ -1,7 +1,7 @@
 /** @jsx h */
 
 import { h } from 'preact';
-import { withRenderer } from '../src';
+import withRenderer from '../src';
 
 class MyElement extends withRenderer() {
   renderCallback({ name }) {
