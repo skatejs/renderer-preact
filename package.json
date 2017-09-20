@@ -15,24 +15,22 @@
     "rollup-plugin-uglify": "^2.0.1"
   },
   "scripts": {
-    "build:es":
-      "babel --no-babelrc src --out-dir es --presets=$(pwd)/config/babel.es",
-    "build:esnext":
-      "babel --no-babelrc src --out-dir esnext --presets=$(pwd)/config/babel.esnext",
-    "build:node":
-      "babel --no-babelrc src --out-dir node --presets=$(pwd)/config/babel.node",
+    "build:es": "babel --no-babelrc src --out-dir es --presets=$(pwd)/config/babel.es",
+    "build:esnext": "babel --no-babelrc src --out-dir esnext --presets=$(pwd)/config/babel.esnext",
+    "build:node": "babel --no-babelrc src --out-dir node --presets=$(pwd)/config/babel.node",
     "test": "jest",
     "build:umd": "rollup -c && rollup -c --min",
-    "build":
-      "npm run build:es && npm run build:esnext && npm run build:node && npm run build:umd",
+    "build": "npm run build:es && npm run build:esnext && npm run build:node && npm run build:umd",
     "prepublish": "npm run build"
   },
   "jest": {
-    "modulePathIgnorePatterns": ["./node_modules"],
+    "modulePathIgnorePatterns": [
+      "./node_modules"
+    ],
     "testEnvironment": "@skatejs/ssr/jest"
   },
   "name": "@skatejs/renderer-preact",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "SkateJS renderer for Preact.",
   "browser": "umd/index.js",
   "main": "node/index.js",
@@ -52,7 +50,9 @@
     "preact": "^8.0.0"
   },
   "babel": {
-    "presets": ["babel-preset-env"]
+    "presets": [
+      "babel-preset-env"
+    ]
   },
   "files": [
     "es",
