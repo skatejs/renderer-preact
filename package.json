@@ -65,5 +65,6 @@
   "homepage": "https://github.com/skatejs/renderer-preact#readme",
   "peerDependencies": {
     "preact": "^8.0.0"
-  }
+  },
+  "version": "0.0.0"
 }
