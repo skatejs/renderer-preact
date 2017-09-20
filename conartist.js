@@ -1,5 +1,5 @@
-const { config } = require('conartist');
-const { babel, base, jest, rollup } = require('conartist/preset');
+const { config, preset } = require('conartist');
+const { babel, base, jest, rollup } = preset;
 
 module.exports = config(babel(), base(), jest(), rollup(), {
   'rollup.config.js'() {
