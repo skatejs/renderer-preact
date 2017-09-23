@@ -17,7 +17,7 @@ This assumes knowledge of SkateJS.
 
 import { h } from 'preact';
 import { withComponent } from 'skatejs';
-import { withPreact } from '@skatejs/renderer-preact';
+import withPreact from '@skatejs/renderer-preact';
 
 class MyComponent extends withComponent(withPreact()) {
   renderCallback() {
