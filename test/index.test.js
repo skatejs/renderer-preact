@@ -5,7 +5,7 @@ import withRenderer from '../src';
 
 class MyElement extends withRenderer() {
   renderCallback({ name }) {
-    return h('div', null, 'Hello, ', name, '!');
+    return <div>Hello, {name}!</div>;
   }
 }
 customElements.define('my-element', MyElement);
