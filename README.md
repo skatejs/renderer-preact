@@ -1,11 +1,11 @@
 # skatejs/renderer-preact
 
-SkateJS renderer for Preact.
+SkateJS renderer for [Preact](https://github.com/developit/preact).
 
 ## Install
 
 ```sh
-npm install @skatejs/renderer-preact
+npm install skatejs preact @skatejs/renderer-preact
 ```
 
 ## Usage
