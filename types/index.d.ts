@@ -1,4 +1,4 @@
-// Type definitions for @skatejs/renderer-preact@0.0.2
+// Type definitions for @skatejs/renderer-preact@0.1.0
 // Project: https://github.com/skatejs/renderer-preact
 // TypeScript Version: 2.5
 
