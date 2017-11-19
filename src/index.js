@@ -1,6 +1,6 @@
 /** @jsx h */
 
-import { h, render } from 'preact';
+import { h, render } from 'preact'
 
 export default (Base = HTMLElement) =>
   class extends Base {
@@ -9,14 +9,21 @@ export default (Base = HTMLElement) =>
       // cases for children by using a slot.
       return {
         ...super.props,
-        ...{ children: <slot /> }
-      };
+        ...{ children: <slot /> },
+      }
     }
     renderer(renderRoot, renderCallback) {
+      this._renderRoot = renderRoot
       this._preactDom = render(
         renderCallback(),
-        renderRoot,
-        this._preactDom || renderRoot.children[0]
-      );
+        this._renderRoot,
+        this._preactDom || this._renderRoot.children[0]
+      )
     }
-  };
+    disconnectedCallback() {
+      super.disconnectedCallback && super.disconnectedCallback()
+      // Preact hack https://github.com/developit/preact/issues/53
+      const Nothing = () => null
+      this._preactDom = render(<Nothing />, this._renderRoot, this._preactDom)
+    }
+  }

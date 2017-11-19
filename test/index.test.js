@@ -52,3 +52,43 @@ test('wrappers', () => {
     '<div>Hello, <slot></slot>!</div>'
   );
 });
+
+test('wrappers cleanup', () => {
+  const didMountSpy = jest.fn()
+  const willUnmountSpy = jest.fn()
+  class PreactComponent extends Component {
+    render() {
+      return <div>Hello, {this.props.children}!</div>;
+    }
+    componentDidMount(){
+      didMountSpy()
+    }
+    componentWillUnmount() {
+      willUnmountSpy()
+    }
+  }
+
+  class PreactComponentWrapper extends withRenderer() {
+    constructor() {
+      super();
+      this.attachShadow({ mode: 'open' });
+    }
+    render() {
+      return <PreactComponent {...this.props} />;
+    }
+  }
+
+  customElements.define('preact-component-wrapper', PreactComponentWrapper);
+
+  const root = document.createElement('div');
+  let el = new PreactComponentWrapper();
+  root.appendChild(el);
+  const { shadowRoot } = el;
+  el.renderer(shadowRoot, el.render.bind(el));
+
+  expect(didMountSpy).toHaveBeenCalled();
+
+  root.removeChild(el);
+
+  expect(willUnmountSpy).toHaveBeenCalled();
+});
