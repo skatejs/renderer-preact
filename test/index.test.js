@@ -4,22 +4,24 @@ import { Component, h } from 'preact';
 import withRenderer from '../src';
 
 class MyElement extends withRenderer() {
-  renderCallback({ name }) {
+  render({ name }) {
     return <div>Hello, {name}!</div>;
   }
 }
 customElements.define('my-element', MyElement);
 
 test('renders', () => {
-  function testContent(text) {
-    return `<div>Hello, ${text}!</div>`;
-  }
-
+  const testContent = (text) =>`<div>Hello, ${text}!</div>`;
   const el = new MyElement();
+
   expect(el.innerHTML).toEqual('');
-  el.rendererCallback(el, el.renderCallback.bind(el, { name: 'World' }));
+
+  el.renderer(el, el.render.bind(el, { name: 'World' }));
+
   expect(el.innerHTML).toEqual(testContent('World'));
-  el.rendererCallback(el, el.renderCallback.bind(el, { name: 'Bob' }));
+
+  el.renderer(el, el.render.bind(el, { name: 'Bob' }));
+
   expect(el.innerHTML).toEqual(testContent('Bob'));
 });
 
@@ -35,7 +37,7 @@ test('wrappers', () => {
       super();
       this.attachShadow({ mode: 'open' });
     }
-    renderCallback() {
+    render() {
       return <PreactComponent {...this.props} />;
     }
   }
@@ -44,7 +46,8 @@ test('wrappers', () => {
 
   const el = new PreactComponentWrapper();
   const { shadowRoot } = el;
-  el.rendererCallback(shadowRoot, el.renderCallback.bind(el));
+  el.renderer(shadowRoot, el.render.bind(el));
+
   expect(shadowRoot.innerHTML).toEqual(
     '<div>Hello, <slot></slot>!</div>'
   );
