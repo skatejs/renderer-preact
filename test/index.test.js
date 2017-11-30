@@ -11,7 +11,7 @@ class MyElement extends withRenderer() {
 customElements.define('my-element', MyElement);
 
 test('renders', () => {
-  const testContent = (text) =>`<div>Hello, ${text}!</div>`;
+  const testContent = text => `<div>Hello, ${text}!</div>`;
   const el = new MyElement();
 
   expect(el.innerHTML).toEqual('');
@@ -48,23 +48,21 @@ test('wrappers', () => {
   const { shadowRoot } = el;
   el.renderer(shadowRoot, el.render.bind(el));
 
-  expect(shadowRoot.innerHTML).toEqual(
-    '<div>Hello, <slot></slot>!</div>'
-  );
+  expect(shadowRoot.innerHTML).toEqual('<div>Hello, <slot></slot>!</div>');
 });
 
 test('wrappers cleanup', () => {
-  const didMountSpy = jest.fn()
-  const willUnmountSpy = jest.fn()
+  const didMountSpy = jest.fn();
+  const willUnmountSpy = jest.fn();
   class PreactComponent extends Component {
     render() {
       return <div>Hello, {this.props.children}!</div>;
     }
-    componentDidMount(){
-      didMountSpy()
+    componentDidMount() {
+      didMountSpy();
     }
     componentWillUnmount() {
-      willUnmountSpy()
+      willUnmountSpy();
     }
   }
 
