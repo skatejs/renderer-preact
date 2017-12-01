@@ -11,6 +11,8 @@
     "rollup": "^0.49.3",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-uglify": "^2.0.1",
+    "typescript": "~2.5.2",
+    "skatejs": "5.0.0-beta.3",
     "@skatejs/ssr": "^0.13.0",
     "babel-eslint": "^7.2.3",
     "babel-preset-es2015-rollup": "^3.0.0",
@@ -21,7 +23,8 @@
     "es/",
     "esnext/",
     "node/",
-    "umd/"
+    "umd/",
+    "types/"
   ],
   "main": "node/index.js",
   "module": "es/index.js",
@@ -32,6 +35,7 @@
     "build:node": "babel --no-babelrc src --out-dir node --presets=$(pwd)/config/babel.node",
     "test": "jest",
     "build:umd": "rollup -c && rollup -c --min",
+    "test:ts": "tsc -p types",
     "build": "npm run build:es && npm run build:esnext && npm run build:node && npm run build:umd",
     "prepublish": "npm run build"
   },
@@ -50,6 +54,7 @@
     "testEnvironment": "@skatejs/ssr/jest"
   },
   "browser": "umd/index.js",
+  "types": "types/index.d.ts",
   "name": "@skatejs/renderer-preact",
   "description": "SkateJS renderer for Preact.",
   "repository": {

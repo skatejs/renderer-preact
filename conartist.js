@@ -9,5 +9,16 @@ module.exports = config(babel(), base(), jest(), rollup(), {
       },
       name: 'skateRendererPreact'
     });
+  },
+  'package.json': {
+    types: 'types/index.d.ts',
+    files: ['types/'],
+    scripts: {
+      'test:ts': 'tsc -p types'
+    },
+    devDependencies: {
+      typescript: '~2.5.2',
+      skatejs: '5.0.0-beta.3'
+    }
   }
 });
